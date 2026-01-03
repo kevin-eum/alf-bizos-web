@@ -1,4 +1,5 @@
-export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL!;
+// Add /api prefix for Vercel serverless function routing
+export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL! + "/api";
 export const APP_PASSWORD = process.env.NEXT_PUBLIC_APP_PASSWORD!;
 
 export async function apiGet(path: string) {
