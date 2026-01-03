@@ -1,7 +1,8 @@
 import { apiGet, apiPost } from "../../lib/api";
 
-export default async function CaseDetail({ params }: { params: { id: string } }) {
-  const data = await apiGet(`/v1/cases/${params.id}`);
+export default async function CaseDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const data = await apiGet(`/v1/cases/${id}`);
   const cs = data.case as any;
 
   async function createPlan() {
